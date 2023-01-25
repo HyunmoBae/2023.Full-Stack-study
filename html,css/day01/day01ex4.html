@@ -14,14 +14,29 @@
       <li>Blue</li>
     </ul>
     <script>
-      let ulTag = document.getElementsByClassName("back");
-      let ulList = ulTag[0].getElementsByTagName("li");
-      for (let i = 0; i < ulList.length; i++) {
-        console.log(ulList[i]);
-        ulList[i].onclick = function (event) {
-          document.bgColor = ulList[i].textContent;
+      let ul = document.getElementsByTagName("ul")[0];
+      let ulList = ul.getElementsByTagName("li");
+      for (var ulTag of ulList) {
+        ulTag.onclick = function (event) {
+          //this는 객체 자신이다.
+          //console.log(this);
+          // == === != !==
+          //자바스크립트는 this의 정체
+          //console.log(this === event.target);
+          //console.log(this.innerText);
+          let colorName = this.innerText;
+          document.body.style.background = colorName;
         };
       }
+      //   두번째 방법
+      //   let ulTag = document.getElementsByClassName("back");
+      //   let ulList = ulTag[0].getElementsByTagName("li");
+      //   for (let i = 0; i < ulList.length; i++) {
+      //     console.log(ulList[i]);
+      //     ulList[i].onclick = function (event) {
+      //       document.bgColor = ulList[i].textContent;
+      //     };
+      //   }
     </script>
   </body>
 </html>
