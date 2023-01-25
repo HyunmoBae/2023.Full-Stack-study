@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul type="circle">
+      <li>ul-title01</li>
+      <li>ul-title02</li>
+      <li>ul-title03</li>
+    </ul>
+    <ol type="a" class="menu">
+      <li>title01</li>
+      <li>title02</li>
+      <li>title03</li>
+    </ol>
+
+    <script>
+      //문서 내의 모든 li요소를 선택해서liList가 참조하도록 한다.
+      //getElementsByClassName의 결과는 List 이다.
+      let ulTag = document.getElementsByClassName("menu");
+      console.log(ulTag[0]);
+      let liList = ulTag[0].getElementsByTagName("li");
+      console.log(liList[0]);
+      console.log(liList[1]);
+      console.log(liList[2]);
+      console.dir(liList);
+      // liList의i 요소에 이벤트 핸들러 한번에 추가
+      for (let i = 0; i < liList.length; i++) {
+        console.log(liList[i]);
+        liList[i].onclick = function (event) {
+          console.log(event.target.innerText);
+        };
+      }
+    </script>
+  </body>
+</html>
